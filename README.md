@@ -8,6 +8,30 @@ Contact: isabelleviraldo@gmail.com
 Date Last Updated: 09/14/2023
 
 ## Project Details
+Due: 10/18/2023
+
+This assignment is a twist on the popular game Battleship.
+
+The rules are simple. The student must create a program that does the following:
+
+1. Create the battleship playing board ( 10 rows represented by letters and 10 columns represented by numbers)
+2. Create the battleship pieces and place them on the board in a random pattern (Ship pieces can only be in an vertical or horizontal pattern, can not be at an angle)
+3. The ship pieces cannot overlap
+4. Hits are represented with an X and misses are represented with a O
+5. Game ends
+   - Once all the ship pieces have been found
+   - Once the user misses 15 times in a row
+   - Uses the sentinel command ( -1 for example)
+6. The board must be its own class
+7. Each ship is its own instance of the class
+8. All classes must be in separate files (header and cpp)
+
+This project is graded on the quality of your code and quality of the game. Add things like titling and narratives to engage your users.
+
+300 points are possible with this project.
+
+200 points are earned for just having a program that works.
+The other 100 points are earned based on game's ease of use and visual additions that add to the look and feel of the game.
 
 ## battleship-project-step1.txt
 Due: 08/29/2023
@@ -40,4 +64,20 @@ Now it is time for you to start planning. For this step, you have two things you
 2. I have given you enough in your budget to bring on two other developers. You task is to take a hard look at yourself, including your strengths and weaknesses, and prepare a memo describing the two developers you wish to bring on your team.
 
 ## Step 3
+Due: 09/24/2023
+
+### Instructions:
+
+With this step we are starting the development phase of project. 
+
+1. Create the board
+2. Create the ship class
+3. Initialize 5 instances of the ship class:
+   - Frigate 2
+   - Sub 3
+   - Destroyer 3
+   - Battleship 4
+   - Aircraft Carrier 5
+4. The ships take random spots on the board
+5. Show each ship position using the first letter of the ship name
 
