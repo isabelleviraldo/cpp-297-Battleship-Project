@@ -73,11 +73,11 @@ With this step we are starting the development phase of project.
 1. Create the board
 2. Create the ship class
 3. Initialize 5 instances of the ship class:
-   - Frigate 2
-   - Sub 3
-   - Destroyer 3
-   - Battleship 4
-   - Aircraft Carrier 5
+   - Frigate (size 2)
+   - Sub (size 3)
+   - Destroyer (size 3)
+   - Battleship (size 4)
+   - Aircraft Carrier (size 5)
 4. The ships take random spots on the board
 5. Show each ship position using the first letter of the ship name
 
