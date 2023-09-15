@@ -1,0 +1,51 @@
+1st week (09/11 - 09/17)
+Research and gather information on building and designing a game
+Familiarize with game development software/tools
+Design the graphical user interface for the game, including the 10x10 grid
+
+2nd week (09/18 - 09/24)
+Plan a framework for how the game will be played, necessary items, basic logic, and goals to meet for a successful project
+Create the randomization placements for the ships
+
+3rd week (09/25 - 10/01)
+Develop the game logic:
+Implement the launching mechanism for missiles into the grid
+Set up the sonar register to determine hits or misses
+Set the conditions for winning or losing the game
+
+4th week (10/02 - 10/08)
+Continuing development of game logic, finishing up the items began
+Test the game for bugs and make necessary adjustments/fine-tuning
+Implement user interface specific items
+
+5th week (10/09 - 10/15)
+Finish all necessary game logic requirements
+Polish the user interface, and overall cleaning up code
+Documenting all progress thus far
+Conduct extensive playtesting to ensure the game's playability
+
+Final week (10/16 - 10/20)
+Last minute adjustments, specifically enhancing the code
+Incorporate feedback from playtesters and make necessary adjustments
+Finalize and present game
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Memo for Developer Selection:
+
+To Whom It May Concern,
+
+I am pleased to announce that our project proposal has been accepted and we have secured the necessary funding to hire two additional developers for our team. After careful evaluation of my strengths and weaknesses, I have identified the ideal candidates who will complement our skills and make significant contributions to the success of our Battleship project.
+
+The first developer we are seeking to hire is Mary J. Rodriguez, who possesses a strong background in algorithms and problem-solving. She is highly proficient in C++ and related frameworks/libraries, with a specific focus on back-end development. Mary will collaborate on coding tasks, contribute to code reviews, optimize project performance, and provide valuable insight into system architecture.
+
+Our second developer candidate is Nicholas D. Thomason, who excels in user interface and human-centered design. He has extensive experience in front-end development and a solid understanding of C++. Nicholas has experience in developing user interfaces and creating responsive designs. His role will primarily involve the design process, implementing user interface elements, conducting usability testing, and ensuring an intuitive and visually appealing user experience.
+
+Both developers possess exceptional communication skills, adaptability, and a positive problem-solving attitude. Their experience aligns perfectly with project requirements and they bring valuable expertise that will enhance our team's capabilities.
+
+I wholeheartedly recommend considering the inclusion of these developers in our team, as I firmly believe their skills and experience will greatly contribute to the successful completion of our Battleship Project.
+
+Thank you for your attention, and please do not hesitate to contact me if you require any further information.
+
+Best regards,
+Isabelle Viraldo
