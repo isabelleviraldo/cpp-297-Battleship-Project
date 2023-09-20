@@ -13,6 +13,7 @@ class gameBoard{
     private:
         string visibleBoard[ROWS][COLS];
         char hiddenBoard[ROWS][COLS];
+
     public:
         gameBoard(){}
 
@@ -32,13 +33,14 @@ class gameBoard{
             }
 
             //TODO generate random ship locations here
-
             //TODO add ship locations to hidden board here
 
         }
 
         void showBoard(){
             //Show the current state of the board
+            cout << "Your Game Board:" << endl;
+
             for (int c = 0; c < COLS; c++){
                 cout << "  " << c;
             }
@@ -52,18 +54,9 @@ class gameBoard{
                 cout << endl;
             }
 
-            /*
-            int row, col;
-
-            // how it shows one of the options
-
-            row = currentRow - 2; col = currentCol + 1;
-            if (row >=0 && row < ROWS && col >=0 && col < COLS)
-            {
-                cout << "board[" << row << "][" << col << "] or \n";
-                board[row][col] = "[L]";
-            }
-            */
+            //TODO
+            //print turns left
+            //print ships remaining?
         }
 
         void setVisible(int r, int c, string newValue){
@@ -73,10 +66,6 @@ class gameBoard{
         void setHidden(int r, int c, char newValue){
             hiddenBoard[r][c] = newValue;
         }
-
-
-
-        
 };
 
 tuple<string, char> takeTurn(int currentRow, int currentCol){
@@ -93,15 +82,17 @@ tuple<string, char> takeTurn(int currentRow, int currentCol){
             hidden = '1' ;
             adjust ship data
             if (ship 100% hit){
-                        cout << shiptype << "has been sunk" << endl;
+                cout << shiptype << "has been sunk" << endl;
             }
         }
     }
     */
     
+    //temp setup rn before entering ship data
     cout << "Your current position on the board is [" << currentCol << "][" << currentRow << "] \n";
     visible = "[X]";
     hidden = '1';
+
     return {visible, hidden};
 }
 
@@ -112,7 +103,7 @@ int main(){
 
     int row, col;
 
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 7; i++){
         cout << "Your current position on the board (input first column, then row): ";
         cin >> col >> row;
         auto [vis, hid] = takeTurn(row, col);
