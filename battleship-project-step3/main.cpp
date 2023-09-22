@@ -3,55 +3,34 @@
 using namespace std;
 using namespace call;
 
-const char alphabet[26] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 
-                           'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 
-                           'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+int row, col;
 
-void gameBoard::createBoard(){
-    //sets up visible blank board by filling it with "[ ]"
-    for (int r = 0; r < ROWS; r++){
-        for (int c = 0; c < COLS; c++){
-            visibleBoard[r][c] = "[ ]";
-        }
-    }
-
-    //sets up hidden blank board by filling it with '.'
-    for (int r = 0; r < ROWS; r++){
-        for (int c = 0; c < COLS; c++){
-            hiddenBoard[r][c] = '.';
-        }
-    }
-
-    //TODO generate random ship locations here
-    //TODO add ship locations to hidden board here
-}
-
-void gameBoard::showBoard(){
-    //Show the current state of the board
-    cout << "Your Game Board:" << endl;
-
-    for (int c = 0; c < COLS; c++){
-        cout << "  " << c;
-    }
-    cout << "\n";
+int main(){
     
-    for (int r = 0; r < ROWS; r++){
-        cout << alphabet[r];
-        for (int c = 0; c < COLS; c++){
-            cout << visibleBoard[r][c];
-        }
-        cout << endl;
+    //TODO have an intro scene thing for game
+    
+    gameBoard thisGame;
+    thisGame.createBoard();
+    
+    ship frigate;
+    frigate.setShip("Frigate");
+    ship sub;
+    sub.setShip("Sub");
+    ship destroyer;
+    destroyer.setShip("Destroyer");
+    ship battleship;
+    battleship.setShip("Battleship");
+    ship aircraftcarrier;
+    aircraftcarrier.setShip("Aircraft Carrier");
+
+    for(int i = 0; i < 7; i++){
+        cout << "Your current position on the board (input first column, then row): ";
+        cin >> col >> row;
+        auto [vis, hid] = checkSuccess(row, col);
+        thisGame.setVisible(row, col, vis);
+        thisGame.setHidden(row, col, hid);
+        thisGame.showBoard();
     }
 
-    //TODO
-    //print turns left
-    //print ships remaining?
-}
-
-void gameBoard::setVisible(int r, int c, string newValue){
-    visibleBoard[r][c] = newValue;
-}
-
-void gameBoard::setHidden(int r, int c, char newValue){
-    hiddenBoard[r][c] = newValue;
+    return 0;
 }
