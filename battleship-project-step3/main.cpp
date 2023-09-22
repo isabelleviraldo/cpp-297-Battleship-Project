@@ -1,46 +1,27 @@
 #include "other.h"
 
-#include <iostream>
-#include <string>
-#include <tuple>
-
 using namespace std;
 using namespace call;
 
-tuple<string, char> checkSuccess(int currentRow, int currentCol){
-    string visible;
-    char hidden;
-
-    /*TODO check hidden board (row, col) to see stats
-    if . {
-        visible = "[O]";
-        hidden = '0';
-    } else {
-        visible = "[X]";
-        if (certain ship) {
-            hidden = '1' ;
-            adjust ship data
-            if (ship 100% hit){
-                cout << shiptype << "has been sunk" << endl;
-            }
-        }
-    }
-    */
-    
-    //temp setup rn before entering ship data
-    cout << "Your current position on the board is [" << currentCol << "][" << currentRow << "] \n";
-    visible = "[X]";
-    hidden = '1';
-
-    return {visible, hidden};
-}
+int row, col;
 
 int main(){
     
+    //TODO have an intro scene thing for game
+    
     gameBoard thisGame;
     thisGame.createBoard();
-
-    int row, col;
+    
+    ship frigate;
+    frigate.setShip("Frigate");
+    ship sub;
+    sub.setShip("Sub");
+    ship destroyer;
+    destroyer.setShip("Destroyer");
+    ship battleship;
+    battleship.setShip("Battleship");
+    ship aircraftcarrier;
+    aircraftcarrier.setShip("Aircraft Carrier");
 
     for(int i = 0; i < 7; i++){
         cout << "Your current position on the board (input first column, then row): ";
