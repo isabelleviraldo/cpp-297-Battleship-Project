@@ -3,7 +3,10 @@
 using namespace std;
 using namespace call;
 
-tuple<string, char> checkSuccess(int currentRow, int currentCol){
+//inputs the coords the user inputs
+//outputs the result of the launch ([X] or [O]) and what to set the hidden grid to do
+//TODO honestly should change this to just a bool, true/false (hit/miss)
+tuple<string, char> checkSuccess(int userRow, int userCol){
     string visible;
     char hidden;
 
@@ -24,7 +27,7 @@ tuple<string, char> checkSuccess(int currentRow, int currentCol){
     */
     
     //temp setup rn before entering ship data
-    cout << "Your current position on the board is [" << currentCol << "][" << currentRow << "] \n";
+    cout << "Your current position on the board is [" << userCol << "][" << userRow << "] \n";
     visible = "[X]";
     hidden = '1';
 
