@@ -14,15 +14,29 @@ int main(){
     gameBoard thisGame;
     thisGame.createBoard();
     
+    
+    //TODO move all the ships being initialised to the board class, so the board info is easy to access and you can access the ship info from the same place
+    
+    //initialises ship
     ship frigate;
     frigate.setShip("Frigate");
+    
+    //gets direction and start location that is clear
     auto [frigatedir, frigateplaceROW, frigateplaceCOL] = placeShipAuto(frigate.getLength(), thisGame);
+    
+    //depending on direction, go that ships length
     for (int i = 0; i < frigate.getLength(); i++){
         if (frigatedir == 0){
+            //right
+            //place marker within ship's class
             frigate.setLocation(i, frigateplaceROW, frigateplaceCOL + i);
+            //place marker within hidden grid
             thisGame.setHidden(frigateplaceROW, frigateplaceCOL + i, frigate.getSymbol());
         } else if (frigatedir == 1){
+            //down
+            //place marker within ship's class
             frigate.setLocation(i, frigateplaceROW + i, frigateplaceCOL);
+            //place marker within hidden grid
             thisGame.setHidden(frigateplaceROW + i, frigateplaceCOL, frigate.getSymbol());
         }
     }
@@ -79,6 +93,7 @@ int main(){
         }
     }
     
+    //prints out the hidden board with ship info
     thisGame.showHBoard();
     
     /*for(int i = 0; i < 7; i++){
