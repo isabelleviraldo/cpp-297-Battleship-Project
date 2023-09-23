@@ -14,7 +14,6 @@ const int COLS = 10;
 
 //initialising functions
 tuple<string, char> checkSuccess(int currentRow, int currentCol);
-//tuple<int, int, int> placeShipAuto();
 
 //initialising classes
 namespace call {
