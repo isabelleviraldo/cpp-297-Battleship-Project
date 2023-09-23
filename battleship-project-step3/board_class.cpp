@@ -48,6 +48,36 @@ void gameBoard::showBoard(){
     //print ships remaining?
 }
 
+void gameBoard::showHBoard(){
+    //Show the current state of the board
+    cout << "Your Game Board:" << endl;
+
+    for (int c = 0; c < COLS; c++){
+        cout << "  " << c;
+    }
+    cout << "\n";
+    
+    for (int r = 0; r < ROWS; r++){
+        cout << alphabet[r];
+        for (int c = 0; c < COLS; c++){
+            cout << " " << hiddenBoard[r][c] << " ";
+        }
+        cout << endl;
+    }
+
+    //TODO
+    //print turns left
+    //print ships remaining?
+}
+
+string gameBoard::getVisible(int r, int c){
+    return visibleBoard[r][c];
+}
+
+char gameBoard::getHidden(int r, int c){
+    return hiddenBoard[r][c];
+}
+
 void gameBoard::setVisible(int r, int c, string newValue){
     visibleBoard[r][c] = newValue;
 }
