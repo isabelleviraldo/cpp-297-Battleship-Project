@@ -99,20 +99,33 @@ int main(){
     char cUser;
     int rowUser;
     int colUser;
+    bool pickingSpot;
+    int missesTilLoss = 15;
     
-    
-    for(int i = 0; i < 25; i++){
+    for(int i = 0; i < missesTilLoss; i++){
         isHit = false;
+        pickingSpot = true;
         
+        thisGame.showHBoard();
         thisGame.showBoard();
-        cout << "misses left: " << 25 - i << endl;
+        cout << "misses left: " << (missesTilLoss - i) << endl;
         cout << endl;
         
-        
-        cout << "Please enter where you will fire the missile: (ie D4)" << endl;
-        cin >> rUser >> cUser;
-        rowUser = (rUser - '0') - 17;
-        colUser = (cUser - '0');
+        while(pickingSpot){
+            cout << "Please enter where you will fire the missile: (ie D4)" << endl;
+            cin >> rUser >> cUser;
+            rowUser = (rUser - '0') - 17;
+            colUser = (cUser - '0');
+            
+            if(rowUser >= 0 && rowUser <= ROWS &&
+               colUser >= 0 && colUser <= COLS){
+                   pickingSpot = false;
+            } else { 
+                cout << endl; 
+                cout << "ERROR: LAUNCH FAILED" << endl; 
+                cout << endl;
+            }
+        }
         
         for (int j = 0; j < frigate.getLength(); j++){
             if (frigate.shipLocation[j][0] == rowUser && 
@@ -202,7 +215,7 @@ int main(){
         battleship.getHP() == 0 &&
         aCarrier.getHP() == 0){
             cout << "YOU WIN!!!" << endl;
-            cout << "total misses remaining: " << 25 - i << endl;
+            cout << "total misses remaining: " << missesTilLoss - i << endl;
             i = 100;
         }   
     }
