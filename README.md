@@ -81,3 +81,13 @@ With this step we are starting the development phase of project.
 4. The ships take random spots on the board
 5. Show each ship position using the first letter of the ship name
 
+## Step 4
+Due 10/08/2023
+
+### Instructions:
+
+For the completion of this project we will incorporate the hit and miss system of the project.
+ 
+You will ask the user to pick a space and the space they pick will either have an O for a miss or a X for a hit.
+Note: for this portion of the exercise, the ships will still be visible so I can see how they interact with the users choice of spaces.
+
