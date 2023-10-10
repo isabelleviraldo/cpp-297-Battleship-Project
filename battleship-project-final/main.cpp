@@ -129,6 +129,8 @@ int main(){
             if (frigate.shipLocation[j][0] == rowUser && 
                 frigate.shipLocation[j][1] == colUser){
                 isHit = true;
+                frigate.shipLocation[j][0] = -1;
+                frigate.shipLocation[j][1] = -1;
                 frigate.subHP();
                 thisGame.setVisible(rowUser, colUser, "[X]");
                 thisGame.setHitStatus(" ||             " + string(1, rUser) + string(1, cUser) + " was a HIT!!!                                        ||");
@@ -144,6 +146,8 @@ int main(){
             if (sub.shipLocation[k][0] == rowUser && 
                 sub.shipLocation[k][1] == colUser){
                 isHit = true;
+                sub.shipLocation[k][0] = -1;
+                sub.shipLocation[k][1] = -1;
                 sub.subHP();
                 thisGame.setVisible(rowUser, colUser, "[X]");
                 thisGame.setHitStatus(" ||             " + string(1, rUser) + string(1, cUser) + " was a HIT!!!                                        ||");
@@ -159,6 +163,8 @@ int main(){
             if (destroyer.shipLocation[l][0] == rowUser && 
                 destroyer.shipLocation[l][1] == colUser){
                 isHit = true;
+                destroyer.shipLocation[l][0] = -1;
+                destroyer.shipLocation[l][1] = -1;
                 destroyer.subHP();
                 thisGame.setVisible(rowUser, colUser, "[X]");
                 thisGame.setHitStatus(" ||             " + string(1, rUser) + string(1, cUser) + " was a HIT!!!                                        ||");
@@ -174,6 +180,8 @@ int main(){
             if (battleship.shipLocation[m][0] == rowUser && 
                 battleship.shipLocation[m][1] == colUser){
                 isHit = true;
+                battleship.shipLocation[m][0] = -1;
+                battleship.shipLocation[m][1] = -1;
                 battleship.subHP();
                 thisGame.setVisible(rowUser, colUser, "[X]");
                 thisGame.setHitStatus(" ||             " + string(1, rUser) + string(1, cUser) + " was a HIT!!!                                        ||");
@@ -189,6 +197,8 @@ int main(){
             if (aCarrier.shipLocation[n][0] == rowUser && 
                 aCarrier.shipLocation[n][1] == colUser){
                 isHit = true;
+                aCarrier.shipLocation[n][0] = -1;
+                aCarrier.shipLocation[n][1] = -1;
                 aCarrier.subHP();
                 thisGame.setVisible(rowUser, colUser, "[X]");
                 thisGame.setHitStatus(" ||             " + string(1, rUser) + string(1, cUser) + " was a HIT!!!                                        ||");
@@ -203,8 +213,10 @@ int main(){
         
         if (!isHit){
             thisGame.setHitStatus(" ||             " + string(1, rUser) + string(1, cUser) + " was a miss                                          ||");
-            thisGame.setHidden(rowUser, colUser, 'O');
-            thisGame.setVisible(rowUser, colUser, "[O]");
+            
+            if (thisGame.getVisible(rowUser, colUser) != "[X]"){
+                thisGame.setVisible(rowUser, colUser, "[O]");
+            }
         }
         
         if (frigate.getHP() == 0 &&
