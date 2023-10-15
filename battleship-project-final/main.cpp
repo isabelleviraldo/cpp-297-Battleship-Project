@@ -12,6 +12,7 @@ int main(){
     gameBoard thisGame;
     thisGame.createBoard();
     
+    
     //initialises ship
     ship frigate;
     frigate.setShip("Frigate");
@@ -87,7 +88,7 @@ int main(){
             thisGame.setHidden(aCarrierplaceROW + i, aCarrierplaceCOL, aCarrier.getSymbol());
         }
     }
-    
+
     thisGame.playIntro();
     
     bool isHit;
@@ -96,16 +97,16 @@ int main(){
     int rowUser;
     int colUser;
     bool pickingSpot;
-    int missesTilLoss = 35;
+    int missesTilLoss = 15;
     
     for(int i = 0; i < missesTilLoss; i++){
         isHit = false;
         pickingSpot = true;
         
         if (missesTilLoss - i < 10){
-            thisGame.setStats(8, "      Misses Left:  " + to_string(missesTilLoss - i) + "          ||");
+            thisGame.setStats(8, "    Misses In A Row Left:  " + to_string(missesTilLoss - i) + "   ||");
         } else {
-            thisGame.setStats(8, "      Misses Left: " + to_string(missesTilLoss - i) + "          ||");
+            thisGame.setStats(8, "    Misses In A Row Left: " + to_string(missesTilLoss - i) + "   ||");
         }
         
         thisGame.showBoard();
@@ -127,7 +128,8 @@ int main(){
         
         for (int j = 0; j < frigate.getLength(); j++){
             if (frigate.shipLocation[j][0] == rowUser && 
-                frigate.shipLocation[j][1] == colUser){
+                frigate.shipLocation[j][1] == colUser &&
+                thisGame.getVisible(rowUser, colUser) != "[O]"){
                 isHit = true;
                 frigate.shipLocation[j][0] = -1;
                 frigate.shipLocation[j][1] = -1;
@@ -139,12 +141,13 @@ int main(){
                     thisGame.setStats(2, "      Frigate:     SUNK        ||");
                 }
                 j = 10;
-                i--;
+                i = -1;
             }
         }
         for (int k = 0; k < sub.getLength(); k++){
             if (sub.shipLocation[k][0] == rowUser && 
-                sub.shipLocation[k][1] == colUser){
+                sub.shipLocation[k][1] == colUser &&
+                thisGame.getVisible(rowUser, colUser) != "[O]"){
                 isHit = true;
                 sub.shipLocation[k][0] = -1;
                 sub.shipLocation[k][1] = -1;
@@ -156,12 +159,13 @@ int main(){
                     thisGame.setStats(3, "      Submarine:   SUNK        ||");
                 }
                 k = 10;
-                i--;
+                i = 0;
             }
         }
         for (int l = 0; l < destroyer.getLength(); l++){
             if (destroyer.shipLocation[l][0] == rowUser && 
-                destroyer.shipLocation[l][1] == colUser){
+                destroyer.shipLocation[l][1] == colUser &&
+                thisGame.getVisible(rowUser, colUser) != "[O]"){
                 isHit = true;
                 destroyer.shipLocation[l][0] = -1;
                 destroyer.shipLocation[l][1] = -1;
@@ -173,12 +177,13 @@ int main(){
                     thisGame.setStats(4, "      Destroyer:   SUNK        ||");
                 }
                 l = 10;
-                i--;
+                i = -1;
             }
         }
         for (int m = 0; m < battleship.getLength(); m++){
             if (battleship.shipLocation[m][0] == rowUser && 
-                battleship.shipLocation[m][1] == colUser){
+                battleship.shipLocation[m][1] == colUser &&
+                thisGame.getVisible(rowUser, colUser) != "[O]"){
                 isHit = true;
                 battleship.shipLocation[m][0] = -1;
                 battleship.shipLocation[m][1] = -1;
@@ -190,12 +195,13 @@ int main(){
                     thisGame.setStats(5, "      Battleship:  SUNK        ||");
                 }
                 m = 10;
-                i--;
+                i = -1;
             }
         }
         for (int n = 0; n < aCarrier.getLength(); n++){
             if (aCarrier.shipLocation[n][0] == rowUser && 
-                aCarrier.shipLocation[n][1] == colUser){
+                aCarrier.shipLocation[n][1] == colUser &&
+                thisGame.getVisible(rowUser, colUser) != "[O]"){
                 isHit = true;
                 aCarrier.shipLocation[n][0] = -1;
                 aCarrier.shipLocation[n][1] = -1;
@@ -207,7 +213,7 @@ int main(){
                     thisGame.setStats(6, "      A. Carrier:  SUNK        ||");
                 }
                 n = 10;
-                i--;
+                i = -1;
             }
         }
         
@@ -238,6 +244,6 @@ int main(){
     } else {
         thisGame.userLost();
     }
-
+    
     return 0;
 }
