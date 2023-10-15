@@ -3,50 +3,58 @@
 using namespace std;
 using namespace call;
 
-//inputs length of the ship im working with, as well as the class gameBoard im using (it has my grid info)
-//returns direction, and initial (row, col)
-tuple<int, int, int> placeShipAuto(int len, gameBoard thisGame){
-    //make sure that it wont go out of bounds of grid
-    int R = ROWS - len;
-    int C = COLS - len;
+//inputs name of ship
+//uses name info to determine symbol to use, length, etc
+void ship::setShip(string n){
+    name = n;
     
-    int row;
-    int col;
-    int direction;
-    
-    //loops until a direction with (row, col) is found that doesnt hit anything
-    while (true){
-        //get random direction and location
-        direction = (rand() % 2);
-        row = (rand() % R);
-        col = (rand() % C);
-        
-        if (direction == 0){
-            //right
-            for (int i = 0; i < (len + 1); i++){
-                //if location at point ISNT water, exit for loop to get new point
-                if (thisGame.getHidden(row, col + i) != '.' /*||
-                    thisGame.getHidden(row, col + i) != 'O'*/){
-                    i = (ROWS + COLS); 
-                }
-                //if everything is clear, this direction and (row, col) is good to use
-                if (i == len){
-                    return {direction, row, col};
-                }
-            }
-        } else {
-            //down
-            for (int i = 0; i < (len + 1); i++){
-                //if location at point ISNT water, exit for loop to get new point
-                if (thisGame.getHidden(row + i, col) != '.' ||
-                    thisGame.getHidden(row + i, col) != 'O'){
-                    i = (ROWS + COLS);
-                }
-                //if everything is clear, this direction and (row, col) is good to use
-                if (i == len){
-                    return {direction, row, col};
-                }
-            }
-        }
+    if (name == "Frigate"){
+        symbol = 'F';
+        length = 2;
+    }else if (name == "Sub"){
+        symbol = 'S';
+        length = 3;
+    }else if (name == "Destroyer"){
+        symbol = 'D';
+        length = 3;
+    }else if (name == "Battleship"){
+        symbol = 'B';
+        length = 4;
+    }else if (name == "Aircraft Carrier"){
+        symbol = 'A';
+        length = 5;
     }
-};
+    
+    hp = length;
+}
+
+//inputs which part of the ship, and (row,col)
+//sets the ship's location as stored in shipLocation to the given (row,col)
+void ship::setLocation(int x, int r, int c){
+            shipLocation[x][0] = r;
+            shipLocation[x][1] = c;
+        }
+
+//returns name of ship
+string ship::getName(){
+    return {name};
+}
+
+//returns symbol used on hidden grid
+char ship::getSymbol(){
+    return {symbol};
+}
+
+//returns length of ship
+int ship::getLength(){
+    return {length};
+}
+
+//returns the hp left
+int ship::getHP(){
+    return {hp};
+}
+
+void ship::subHP(){
+    hp--;
+}
