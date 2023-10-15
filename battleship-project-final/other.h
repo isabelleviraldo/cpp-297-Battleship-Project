@@ -30,7 +30,7 @@ namespace call {
                                         "      Battleship:  Unknown     ||",
                                         "      A. Carrier:  Unknown     ||",
                                         "                               ||",
-                                        "      Misses Left: 15          ||",
+                                        "    Misses In A Row Left: 15   ||",
                                         "                               ||"};
             string hitStatus = " ||                                                                    ||";
             
